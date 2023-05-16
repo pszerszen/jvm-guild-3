@@ -1,0 +1,12 @@
+ol.two-columns {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
+#java-image {
+    width: 20%;
+    border: 0;
+    background: none;
+    box-shadow: none;
+}
