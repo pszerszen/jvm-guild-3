@@ -1,12 +1,41 @@
+.reveal {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 42px;
+    font-weight: normal;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    margin: 0 0 20px 0;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-shadow: none;
+    word-wrap: break-word;
+}
+
+.reveal code {
+    font-family: monospace;
+    text-transform: none;
+    width: 110%;
+    height: 100%;
+}
+
+.reveal .method {
+    text-transform: none;
+}
+
 ol.two-columns {
     columns: 2;
     -webkit-columns: 2;
     -moz-columns: 2;
-}
-
-#java-image {
-    width: 20%;
-    border: 0;
-    background: none;
-    box-shadow: none;
 }

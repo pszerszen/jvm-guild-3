@@ -12,17 +12,17 @@
     <link rel="stylesheet" href="dist/theme/league.css">
 
     <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="plugin/highlight/zenburn.css">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
         <section>
-                <img src="img/java.webp" alt="java-logo" id="java-image">
-                <h1>JVM Guild #3</h1>
-                <h2>JDK Features - 11 ➡ 21</h2>
-                <br/>
-                <h3>Piotr Szerszeń</h3>
+            <img src="img/java.webp" alt="java-logo" class="r-stretch">
+            <h1>JVM Guild #3</h1>
+            <h2>JDK Features - 11 ➡ 21</h2>
+            <br/>
+            <h3>Piotr Szerszeń</h3>
         </section>
         <section>
             <h2>Agenda</h2>
@@ -40,6 +40,75 @@
                 <li>Scoped values</li>
                 <li>Others...</li>
             </ol>
+        </section>
+        <section>
+            <h2>String</h2>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method">repeat()</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                        strVar.repeat(2) ➡️ strVar + strVar
+                    </code>
+                </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method">isBlank()</h3>
+                    <pre>
+                    <code data-trim data-noescape data-line-numbers>
+                        ✅ - "".isBlank()
+                        ✅ - " ".isBlank()
+                        ✅ - " \n ".isBlank()
+                        ❌ - "some string".isBlank()
+                    </code>
+                </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method">lines()</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            "foo\nbar\n\nfoo\nbar".lines() ➡️ Stream.of("foo","bar","","foo","bar")
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method">strip()</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            var s = "\t abc \n";
+                            s.strip() == s.trim()
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method">strip()</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            var c = '\u2000';
+                            var s = c + "abc" + c;
+                            s.strip() != s.trim()
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method">stripLeading()</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            var s = "\t abc \n";
+                            s.stripLeading() ➡️ "abc \n"
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method">stripTrailing()</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            var s = "\t abc \n";
+                            s.stripTrailing() ➡️ "\t abc"
+                        </code>
+                    </pre>
+                </div>
+            </div>
         </section>
     </div>
 </div>
