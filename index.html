@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="dist/theme/league.css">
 
     <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css">
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
 </head>
 <body>
 <div class="reveal">
@@ -45,15 +46,15 @@
             <h2>String</h2>
             <div class="r-stack">
                 <div class="fragment fade-in-then-out">
-                    <h3 class="method">repeat()</h3>
+                    <h3 class="method jdk-11">repeat()</h3>
                     <pre>
                     <code data-trim data-noescape>
                         strVar.repeat(2) ➡️ strVar + strVar
                     </code>
-                </pre>
+                    </pre>
                 </div>
                 <div class="fragment fade-in-then-out">
-                    <h3 class="method">isBlank()</h3>
+                    <h3 class="method jdk-11">isBlank()</h3>
                     <pre>
                     <code data-trim data-noescape data-line-numbers>
                         ✅ - "".isBlank()
@@ -64,7 +65,7 @@
                 </pre>
                 </div>
                 <div class="fragment fade-in-then-out">
-                    <h3 class="method">lines()</h3>
+                    <h3 class="method jdk-11">lines()</h3>
                     <pre>
                         <code data-trim data-noescape>
                             "foo\nbar\n\nfoo\nbar".lines() ➡️ Stream.of("foo","bar","","foo","bar")
@@ -72,7 +73,7 @@
                     </pre>
                 </div>
                 <div class="fragment fade-in-then-out">
-                    <h3 class="method">strip()</h3>
+                    <h3 class="method jdk-11">strip()</h3>
                     <pre>
                         <code data-trim data-noescape>
                             var s = "\t abc \n";
@@ -81,7 +82,7 @@
                     </pre>
                 </div>
                 <div class="fragment fade-in-then-out">
-                    <h3 class="method">strip()</h3>
+                    <h3 class="method jdk-11">strip()</h3>
                     <pre>
                         <code data-trim data-noescape>
                             var c = '\u2000';
@@ -91,7 +92,7 @@
                     </pre>
                 </div>
                 <div class="fragment fade-in-then-out">
-                    <h3 class="method">stripLeading()</h3>
+                    <h3 class="method jdk-11">stripLeading()</h3>
                     <pre>
                         <code data-trim data-noescape>
                             var s = "\t abc \n";
@@ -100,11 +101,120 @@
                     </pre>
                 </div>
                 <div class="fragment fade-in-then-out">
-                    <h3 class="method">stripTrailing()</h3>
+                    <h3 class="method jdk-11">stripTrailing()</h3>
                     <pre>
                         <code data-trim data-noescape>
                             var s = "\t abc \n";
                             s.stripTrailing() ➡️ "\t abc"
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-12">transform()</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            "hello".transform(input -> input + " world!") ➡️ "hello world!"
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-12">indent()</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            var multiline = "This is\na multiline\nstring.";
+                            var indented = "  This is\n  a multiline\n  string.";
+                            multiline.indent(2) ➡️ indented
+                            indented.indent(-2) ➡️ multiline
+                            indented.indent(-999) ➡️ multiline
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-15">TEXT BLOCK</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            <script type="text/template">
+                            String html = """
+                                <html>
+                                    <body>
+                                        <p class="greeting">Hello, world</p>
+                                    </body>
+                                </html>
+                                """;
+                            </script>
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-15">TEXT BLOCK</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            String query = """
+                                SELECT "EMP_ID", "LAST_NAME" FROM "EMPLOYEE_TB"
+                                WHERE "CITY" = 'INDIANAPOLIS'
+                                ORDER BY "EMP_ID", "LAST_NAME";
+                                """;
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-15">TEXT BLOCK</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            String code = """
+                                String text = \"""
+                                    A text block inside a text block
+                                \""";
+                                """;
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-15">TEXT BLOCK</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            String oneLine = """
+                                Lorem ipsum dolor sit amet, consectetur adipiscing \
+                                elit, sed do eiusmod tempor incididunt ut labore \
+                                et dolore magna aliqua.\
+                                """;
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-15">formatted()</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            String template = """
+                               {
+                                 "firstName": "%s",
+                                 "lastName": "%s",
+                                 "age": "%d"
+                               }""";
+
+                            template.formatted("John", "Doe", 21)
+                                            ⬇️
+                            String.format(template, "John", "Doe", 21)
+                        </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-15">stripIndent()</h3>
+                    <pre>
+                        <code data-trim data-noescape>
+                            String template = """
+                               {
+                                 "firstName": "%s",
+                                 "lastName": "%s",
+                                 "age": "%d"
+                               }""";
+
+                            """
+                                 {
+                                   "name": "%s",
+                                   "lastName": "%s",
+                                   "age": "%d"
+                                 }""".stripIndent() ➡️ template
                         </code>
                     </pre>
                 </div>
