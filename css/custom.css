@@ -34,6 +34,61 @@
     text-transform: none;
 }
 
+.reveal .method::before {
+    border-radius: 50%;
+    border: medium solid;
+    padding: 4px;
+    font-family: Monospaced, monospace;
+    font-weight: bold;
+    font-size: 40%;
+    vertical-align: super;
+    margin-right: 10px;
+}
+
+.reveal .jdk-11::before {
+    content: '11';
+}
+
+.reveal .jdk-12::before {
+    content: '12';
+}
+
+.reveal .jdk-13::before {
+    content: '13';
+}
+
+.reveal .jdk-14::before {
+    content: '14';
+}
+
+.reveal .jdk-15::before {
+    content: '15';
+}
+
+.reveal .jdk-16::before {
+    content: '16';
+}
+
+.reveal .jdk-17::before {
+    content: '17';
+}
+
+.reveal .jdk-18::before {
+    content: '18';
+}
+
+.reveal .jdk-19::before {
+    content: '19';
+}
+
+.reveal .jdk-20::before {
+    content: '20';
+}
+
+.reveal .jdk-21::before {
+    content: '21';
+}
+
 ol.two-columns {
     columns: 2;
     -webkit-columns: 2;
