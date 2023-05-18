@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>JVM Guild #3</title>
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="node_modules/firacode/distr/fira_code.css">
+    <link rel="stylesheet" href="dist/custom.css">
     <link rel="stylesheet" href="dist/theme/league.css">
 
     <!-- Theme used for syntax highlighted code -->
@@ -18,14 +19,14 @@
 <body>
 <div class="reveal">
     <div class="slides">
-        <section>
+        <section id="title">
             <img src="img/java.webp" alt="java-logo" class="r-stretch">
             <h1>JVM Guild #3</h1>
             <h2>JDK Features - 11 ➡ 21</h2>
             <br/>
             <h3>Piotr Szerszeń</h3>
         </section>
-        <section>
+        <section id="agenda">
             <h2>Agenda</h2>
             <br/>
             <ol class="two-columns">
@@ -42,7 +43,7 @@
                 <li>Others...</li>
             </ol>
         </section>
-        <section>
+        <section id="string">
             <h2>String</h2>
             <div class="r-stack">
                 <div class="fragment fade-in-then-out">
@@ -135,12 +136,12 @@
                         <code data-trim data-noescape>
                             <script type="text/template">
                             String html = """
-                                <html>
+                            <html>
                                     <body>
                                         <p class="greeting">Hello, world</p>
                                     </body>
                                 </html>
-                                """;
+                            """;
                             </script>
                         </code>
                     </pre>
@@ -216,6 +217,41 @@
                                    "age": "%d"
                                  }""".stripIndent() ➡️ template
                         </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
+        <section id="compact-number-format">
+            <h2 class="method jdk-12">CompactNumberFormat</h2>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <pre>
+                    <code data-trim data-noescape>
+                        var numberFormat = CompactNumberFormat.getCompactNumberInstance(
+                                Locale.ENGLISH, Style.SHORT);
+                        numberFormat.format(x);
+
+                              x ➡️ output
+                            100 ➡️ "100"
+                           1000 ➡️ "1K"
+                         100000 ➡️ "100K"
+                        1000000 ➡️ "1M"
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <pre>
+                    <code data-trim data-noescape>
+                        var numberFormat = CompactNumberFormat.getCompactNumberInstance(
+                                Locale.of("pl", "PL"), Style.LONG);
+                        numberFormat.format(x);
+
+                              x ➡️ output
+                            100 ➡️ "100"
+                           1000 ➡️ "1 tysiąc"
+                         100000 ➡️ "100 tysięcy"
+                        1000000 ➡️ "1 milion"
+                    </code>
                     </pre>
                 </div>
             </div>
