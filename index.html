@@ -473,7 +473,34 @@
                 </div>
             </div>
         </section>
-        <section id="java-doc"></section>
+        <section id="java-doc">
+            <h2 class="method jdk-18">JavaDoc</h2>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <pre>
+                    <code data-trim data-noescape>
+                        /**
+                         * How to write a text file with Java 18:
+                         * {@snippet :
+                         * try (var writer = Files.newBufferedWriter(path)) {
+                         *   writer.write(text);
+                         * }
+                         *}
+                         *
+                         * @param path destination
+                         * @param text to be written
+                         */
+                        private void method(Path path, String text) throws IOException {
+                            // ...
+                        }
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <img src="img/javadoc-snippet.png" class="r-stretch">
+                </div>
+            </div>
+        </section>
         <section id="network"></section>
         <section id="multi-threading"></section>
         <section id="scoped-values"></section>
