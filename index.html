@@ -458,7 +458,21 @@
                 </div>
             </div>
         </section>
-        <section id="sealed-types"></section>
+        <section id="sealed-types">
+            <h2 class="method jdk-17">Sealed types</h2>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <pre>
+                    <code data-trim data-noescape>
+                    abstract sealed class Shape permits Circle, Rectangle, Square {}
+                    final class Circle extends Shape {}
+                    final class Rectangle extends Shape {}
+                    final class Square extends Shape {}
+                    </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
         <section id="java-doc"></section>
         <section id="network"></section>
         <section id="multi-threading"></section>
