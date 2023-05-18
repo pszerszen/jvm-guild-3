@@ -317,7 +317,103 @@
                 </div>
             </div>
         </section>
-        <section id="pattern-matching"></section>
+        <section id="pattern-matching">
+            <h2>Pattern Matching</h2>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <h3>if-instanceof</h3>
+                    <h4>old way</h4>
+                    <pre>
+                    <code data-trim data-noescape>
+                    <script type="text/template">
+                    if (o instanceof Collection) {
+                        Collection<?> c = (Collection<?>) o;
+                        // process collection
+                    } else if (o instanceof Map) {
+                        Map<?, ?> m = (Map<?, ?>) o;
+                        // process map
+                    } else {
+                        // process object
+                    }
+                    </script>
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-16">if-instanceof</h3>
+                    <h4>new way</h4>
+                    <pre>
+                    <code data-trim data-noescape>
+                    <script type="text/template">
+                    if (o instanceof Collection<?> c) {
+                        // process collection
+                    } else if (o instanceof Map<?, ?> m) {
+                        // process map
+                    } else {
+                        // process object
+                    }
+                    </script>
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-17">switch</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                    var msg = switch (shape) {
+                        case Circle c -> "Circle: " + c;
+                        case Rectangle r -> "Rectangle: " + r;
+                        case Square s -> "Square: " + s;
+                        default -> "Something else";
+                    };
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-19">records</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                    if (object instanceof Location(var name, var gpsPoint)) {
+                        // name and gpsPoint processable from here
+                    }
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-19">records (deep)</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                    if (object instanceof Location(var name, GPSPoint(var lat, var lng))) {
+                        // name, lat and lng processable from here
+                    }
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-19">records in switch</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                    val result = switch (object) {
+                        case Location(var name, var ignored)
+                            when name.equals("Home") -> "Test";
+                        case Location(var name, var ignored) -> name;
+                        case LocationWrapper<?>(Location(var name,
+                                                      GPSPoint(var lat,
+                                                               var lng)),
+                                             var description)
+                            when description.equals("Description") -> name;
+                        case LocationWrapper<?>(Location(var name,
+                                                      GPSPoint(var lat,
+                                                               var lng)),
+                                             var description) -> description;
+                        case GPSPoint(var lat, var lon) -> String.valueOf(lat);
+                        default -> "default";
+                    };
+                    </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
         <section id="records"></section>
         <section id="sealed-types"></section>
         <section id="java-doc"></section>
