@@ -393,28 +393,71 @@
                     <h3 class="method jdk-19">records in switch</h3>
                     <pre>
                     <code data-trim data-noescape>
+                    <script type="text/template">
                     val result = switch (object) {
                         case Location(var name, var ignored)
                             when name.equals("Home") -> "Test";
                         case Location(var name, var ignored) -> name;
                         case LocationWrapper<?>(Location(var name,
-                                                      GPSPoint(var lat,
-                                                               var lng)),
-                                             var description)
+                                                         GPSPoint(var lat,
+                                                                  var lng)),
+                                                var description)
                             when description.equals("Description") -> name;
                         case LocationWrapper<?>(Location(var name,
-                                                      GPSPoint(var lat,
-                                                               var lng)),
+                                                         GPSPoint(var lat,
+                                                                  var lng)),
                                              var description) -> description;
                         case GPSPoint(var lat, var lon) -> String.valueOf(lat);
                         default -> "default";
                     };
+                    </script>
                     </code>
                     </pre>
                 </div>
             </div>
         </section>
-        <section id="records"></section>
+        <section id="records">
+            <h2 class="method jdk-16">Records</h2>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <h3>Specifications:</h3>
+                    <ul>
+                        <li>final class</li>
+                        <li>all fields are private final</li>
+                        <li>automatically has "getters" for all the fields</li>
+                        <li>automatically has equals(), hashCode() and toString()</li>
+                    </ul>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <pre>
+                    <code data-trim data-noescape>
+                    <script type="text/template">
+                    record GPSPoint(double lat, double lng) {}
+                    record Location(String name, GPSPoint gpsPoint) {}
+                    record LocationWrapper<T>(T t, String description) {}
+                    </script>
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <pre>
+                    <code data-trim data-noescape>
+                    <script type="text/template">
+                    record Range(int lo, int hi) {
+
+                        public Range {
+                            if (lo > hi) {
+                                throw new IllegalArgumentException(
+                                        "(%d,%d)".formatted(lo, hi));
+                            }
+                        }
+                    }
+                    </script>
+                    </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
         <section id="sealed-types"></section>
         <section id="java-doc"></section>
         <section id="network"></section>
