@@ -256,6 +256,75 @@
                 </div>
             </div>
         </section>
+        <section id="switch-case">
+            <h2 class="method jdk-14">switch-case</h2>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <h3>Old style</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                        int value;
+                        switch (day) {
+                        case MONDAY:
+                        case FRIDAY:
+                        case SUNDAY:
+                            value = 6;
+                            break;
+                        case TUESDAY:
+                            value = 7;
+                            break;
+                        case THURSDAY:
+                        case SATURDAY:
+                            value = 8;
+                            break;
+                        case WEDNESDAY:
+                            value = 9;
+                            break;
+                        default:
+                            throw new IllegalStateException("What: " + day);
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3>yield</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                    int value = switch (day) {
+                        case MONDAY, FRIDAY, SUNDAY:
+                            yield 6;
+                        case TUESDAY:
+                            yield 7;
+                        case THURSDAY, SATURDAY:
+                            yield 8;
+                        case WEDNESDAY:
+                            yield 9;
+                    };
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3>lambda</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                    int value = switch (day) {
+                        case MONDAY, FRIDAY, SUNDAY -> 6;
+                        case TUESDAY -> 7;
+                        case THURSDAY, SATURDAY -> 8;
+                        case WEDNESDAY -> 9;
+                    };
+                    </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
+        <section id="pattern-matching"></section>
+        <section id="records"></section>
+        <section id="sealed-types"></section>
+        <section id="java-doc"></section>
+        <section id="network"></section>
+        <section id="multi-threading"></section>
+        <section id="scoped-values"></section>
+        <section id="others"></section>
     </div>
 </div>
 
