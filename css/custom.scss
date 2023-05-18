@@ -1,0 +1,178 @@
+$font_standard: 'Source Sans Pro', Helvetica, sans-serif;
+$font_monospaced: 'Fira Code', monospace;
+$font_code: 'Fira Code VF', monospace;
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal {
+  font-family: $font_standard;
+  font-size: 42px;
+  font-weight: normal;
+
+  h1 {
+    margin: 0 0 20px 0;
+    font-family: $font_standard;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-shadow: none;
+    word-wrap: break-word;
+  }
+
+  h2 {
+    margin: 0 0 20px 0;
+    font-family: $font_standard;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-shadow: none;
+    word-wrap: break-word;
+  }
+
+  h3 {
+    margin: 0 0 20px 0;
+    font-family: $font_standard;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-shadow: none;
+    word-wrap: break-word;
+  }
+
+  h4 {
+    margin: 0 0 20px 0;
+    font-family: $font_standard;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-shadow: none;
+    word-wrap: break-word;
+  }
+
+  h5 {
+    margin: 0 0 20px 0;
+    font-family: $font_standard;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-shadow: none;
+    word-wrap: break-word;
+  }
+
+  h6 {
+    margin: 0 0 20px 0;
+    font-family: $font_standard;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-shadow: none;
+    word-wrap: break-word;
+  }
+
+  code {
+    font-family: $font_monospaced !important;
+    text-transform: none;
+    width: 110%;
+    height: 100%;
+  }
+
+  @supports (font-variation-settings: normal) {
+    code {
+      font-family: $font_code !important;
+    }
+  }
+
+  .method {
+    text-transform: none;
+
+    &::before {
+      border-radius: 50%;
+      border: medium solid;
+      padding: 4px;
+      font-family: $font_monospaced;
+      font-weight: bold;
+      font-size: 40%;
+      vertical-align: super;
+      margin-right: 10px;
+    }
+  }
+
+  .jdk-11 {
+    &::before {
+      content: '11';
+    }
+  }
+
+  .jdk-12 {
+    &::before {
+      content: '12';
+    }
+  }
+
+  .jdk-13 {
+    &::before {
+      content: '13';
+    }
+  }
+
+  .jdk-14 {
+    &::before {
+      content: '14';
+    }
+  }
+
+  .jdk-15 {
+    &::before {
+      content: '15';
+    }
+  }
+
+  .jdk-16 {
+    &::before {
+      content: '16';
+    }
+  }
+
+  .jdk-17 {
+    &::before {
+      content: '17';
+    }
+  }
+
+  .jdk-18 {
+    &::before {
+      content: '18';
+    }
+  }
+
+  .jdk-19 {
+    &::before {
+      content: '19';
+    }
+  }
+
+  .jdk-20 {
+    &::before {
+      content: '20';
+    }
+  }
+
+  .jdk-21 {
+    &::before {
+      content: '21';
+    }
+  }
+}
+
+ol.two-columns {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
