@@ -501,8 +501,138 @@
                 </div>
             </div>
         </section>
-        <section id="network"></section>
-        <section id="multi-threading"></section>
+        <section id="network">
+            <h2 class="method jdk-18">Internet Address Resolution</h2>
+            <div>
+                <pre>
+                <code data-trim data-noescape>
+                    String ADDRESS = "www.google.com";
+                    for (var address : InetAddress.getAllByName(ADDRESS)) {
+                        address.getHostName() ➡️ ADDRESS;
+                    }
+                </code>
+                </pre>
+            </div>
+        </section>
+        <section id="multi-threading">
+            <h2>Multi-Threading</h2>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-19">Thread builders</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                    var virtualThreadFactory = Thread.ofVirtual().factory();
+                    var kernelThreadFactory = Thread.ofPlatform().factory();
+
+                    var virtualThread = virtualThreadFactory.newThread(printThread);
+                    var kernelThread = kernelThreadFactory.newThread(printThread);
+
+                    virtualThread.start();
+                    kernelThread.start();
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-19">Executors.newVirtualThreadPerTaskExecutor()</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                    try (var executor = newVirtualThreadPerTaskExecutor()) {
+                        var bathTime = executor.submit(this::takeABath);
+                        var boilingWater = executor.submit(this::boilWater);
+
+                        boilingWater.get();
+                        bathTime.get();
+                    }
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-19">VirtualThread</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                    var iterations = 100_000;
+                    var idleService = spy(new IdleService());
+                    try (var executor = newVirtualThreadPerTaskExecutor()) {
+                        IntStream.range(0, iterations).forEach(i ->
+                                executor.submit(idleService::doStuff));
+                    }
+                    verify(idleService, times(iterations)).doStuff();
+
+                    // M1 Pro 8 core / 16GB RAM
+                    //     1 000 - 1.5s
+                    //    10 000 - 1.8s
+                    //   100 000 - 4.2s
+                    // 1 000 000 - 17.2s
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-19">Structured Concurrency</h3>
+                    <pre>
+                    <code data-trim data-noescape><script type="text/template">
+                            try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+                                Future<Shelter> shelter = scope.fork(this::getShelter);
+                                Future<List<Dog>> dogs = scope.fork(this::getDogs);
+                                scope.join();
+
+                                var response = new Response(shelter.resultNow(),
+                                                            dogs.resultNow());
+
+                                assertResponseCorrect(response);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                    </script></code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-19">Structured Concurrency</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                        <script type="text/template">
+                            assertThatThrownBy(() -> {
+                                try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+                                    Future<Shelter> shelter = scope.fork(this::getShelter);
+                                    Future<List<Dog>> dogs = scope.fork(this::getDogsWithException);
+                                    scope.throwIfFailed(e -> new RuntimeException(ERROR_MESSAGE));
+                                    scope.join();
+                                    var response = new Response(shelter.resultNow(),
+                                                                dogs.resultNow());
+
+                                    assertResponseCorrect(response);
+                                }
+                            }).isInstanceOf(RuntimeException.class)
+                                .hasMessage(ERROR_MESSAGE);
+                        </script>
+                    </code>
+                    </pre>
+                </div>
+                <div class="fragment fade-in-then-out">
+                    <h3 class="method jdk-19">Structured Concurrency</h3>
+                    <pre>
+                    <code data-trim data-noescape>
+                        <script type="text/template">
+                            assertThatThrownBy(() -> {
+                                try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+                                    Future<Shelter> shelter = scope.fork(this::getShelter);
+                                    Future<List<Dog>> dogs = scope.fork(this::getDogsSlowly);
+                                    scope.throwIfFailed(e -> new RuntimeException(ERROR_MESSAGE));
+                                    scope.join();
+                                    scope.joinUntil(Instant.now().plusMillis(50));
+                                    var response = new Response(shelter.resultNow(),
+                                                                dogs.resultNow());
+
+                                    assertResponseCorrect(response);
+                                } catch (InterruptedException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }).isInstanceOf(IllegalStateException.class);
+                        </script>
+                    </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
         <section id="scoped-values"></section>
         <section id="others"></section>
     </div>
