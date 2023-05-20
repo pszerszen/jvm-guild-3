@@ -190,6 +190,29 @@
                      }""".stripIndent() ➡️ template
                 </code></pre>
             </section>
+            <section>
+                <h3 class="method jdk-21">String Templates</h3>
+                <pre><code data-trim data-noescape>
+                String name    = "Joan Smith";
+                String phone   = "555-123-4567";
+                String address = "1 Maple Drive, Anytown";
+                String json = STR."""
+                    {
+                        "name": "\{name}",
+                        "phone": "\{phone}",
+                        "address": "\{address}"
+                    }
+                    """;
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-21">String Templates</h3>
+                <pre><code data-trim data-noescape>
+                int x = 10;
+                int y = 20;
+                String s = STR."\{x} + \{y} = \{x + y}"; // 10 + 20 = 30
+                </code></pre>
+            </section>
         </section>
         <section id="compact-number-format">
             <h2 class="method jdk-12">CompactNumberFormat</h2>
@@ -555,7 +578,44 @@
                 </script></code></pre>
             </section>
         </section>
-        <section id="others"></section>
+        <section id="others">
+            <h2>Others</h2>
+            <section>
+                <h3 class="method jdk-21">Sequenced Collections</h3>
+                <pre><code data-trim data-noescape><script type="text/template">
+                interface SequencedCollection<E> extends Collection<E> {
+                    SequencedCollection<E> reversed();
+                    void addFirst(E);
+                    void addLast(E);
+                    E getFirst();
+                    E getLast();
+                    E removeFirst();
+                    E removeLast();
+                }
+                </script></code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-21">Sequenced Maps</h3>
+                <pre><code data-trim data-noescape><script type="text/template">
+                interface SequencedMap<K,V> extends Map<K,V> {
+                    SequencedMap<K,V> reversed();
+                    SequencedSet<K> sequencedKeySet();
+                    SequencedCollection<V> sequencedValues();
+                    SequencedSet<Entry<K,V>> sequencedEntrySet();
+                    V putFirst(K, V);
+                    V putLast(K, V);
+                    // methods promoted from NavigableMap
+                    Entry<K, V> firstEntry();
+                    Entry<K, V> lastEntry();
+                    Entry<K, V> pollFirstEntry();
+                    Entry<K, V> pollLastEntry();
+                }
+                </script></code></pre>
+            </section>
+            <section>
+                <img src="img/sequenced-diagram.png" class="r-stretch">
+            </section>
+        </section>
     </div>
 </div>
 
