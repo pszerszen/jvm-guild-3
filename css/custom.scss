@@ -169,10 +169,15 @@ $font_code: 'Fira Code VF', monospace;
       content: '21';
     }
   }
+
+  ol.two-columns {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }
+
+  img.full-size {
+    max-height: 55vh;
+  }
 }
 
-ol.two-columns {
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
-}

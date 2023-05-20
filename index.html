@@ -420,7 +420,7 @@
             <h2 class="method jdk-16">Records</h2>
             <div class="r-stack">
                 <div class="fragment fade-in-then-out">
-                    <h3>Specifications:</h3>
+                    <h3>Specifications</h3>
                     <ul>
                         <li>final class</li>
                         <li>all fields are private final</li>
@@ -496,9 +496,7 @@
                     </code>
                     </pre>
                 </div>
-                <div class="fragment fade-in-then-out">
-                    <img src="img/javadoc-snippet.png" class="r-stretch">
-                </div>
+                <img src="img/javadoc-snippet.png" class="fragment fade-in-then-out full-size">
             </div>
         </section>
         <section id="network">
@@ -633,7 +631,36 @@
                 </div>
             </div>
         </section>
-        <section id="scoped-values"></section>
+        <section id="scoped-values">
+            <h2 class="method jdk-20">ScopedValue</h2>
+            <div class="r-stack">
+                <div class="fragment fade-in-then-out">
+                    <h3>Specifications</h3>
+                    <ul>
+                        <li>immutable data within and across threads</li>
+                        <li>not accessible from outside the scope</li>
+                        <li>automatically inherited by all child threads created using the StructuredTaskScope</li>
+                    </ul>
+                </div>
+                <img src="img/scoped-value.png" class="fragment fade-in-then-out full-size">
+                <div class="fragment fade-in-then-out">
+                    <pre>
+                    <code data-trim data-noescape>
+                    <script type="text/template">
+                    public static final ScopedValue<User> LOGGED_IN_USER =
+                            ScopedValue.newInstance();
+
+                    public void serve(Request request) {
+                        User loggedInUser = authenticateUser(request);
+                        ScopedValue.where(LOGGED_IN_USER, loggedInUser)
+                            .run(() -> restAdapter.processRequest(request));
+                    }
+                    </script>
+                    </code>
+                    </pre>
+                </div>
+            </div>
+        </section>
         <section id="others"></section>
     </div>
 </div>
