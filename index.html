@@ -45,13 +45,13 @@
         </section>
         <section id="string">
             <h2>String</h2>
-            <section>
+            <section id="string-repeat">
                 <h3 class="method jdk-11">repeat()</h3>
                 <pre><code data-trim data-noescape>
                 strVar.repeat(2) ➡️ strVar + strVar
                 </code></pre>
             </section>
-            <section>
+            <section id="string-is-blanc">
                 <h3 class="method jdk-11">isBlank()</h3>
                 <pre><code data-trim data-noescape data-line-numbers>
                 ✅ - "".isBlank()
@@ -60,7 +60,7 @@
                 ❌ - "some string".isBlank()
                 </code></pre>
             </section>
-            <section>
+            <section id="string-lines">
                 <h3 class="method jdk-11">lines()</h3>
                 <pre><code data-trim data-noescape>
                 "foo\nbar\n\nfoo\nbar".lines()
@@ -68,14 +68,14 @@
                 Stream.of("foo","bar","","foo","bar")
                 </code></pre>
             </section>
-            <section>
+            <section id="string-strip">
                 <h3 class="method jdk-11">strip()</h3>
                 <pre><code data-trim data-noescape>
                 var s = "\t abc \n";
                 s.strip() == s.trim()
                 </code></pre>
             </section>
-            <section>
+            <section id="string-strip2">
                 <h3 class="method jdk-11">strip()</h3>
                 <pre><code data-trim data-noescape>
                 var c = '\u2000';
@@ -83,21 +83,21 @@
                 s.strip() != s.trim()
                 </code></pre>
             </section>
-            <section>
+            <section id="string-strip-leading">
                 <h3 class="method jdk-11">stripLeading()</h3>
                 <pre><code data-trim data-noescape>
                 var s = "\t abc \n";
                 s.stripLeading() ➡️ "abc \n"
                 </code></pre>
             </section>
-            <section>
+            <section id="string-strip-trailing">
                 <h3 class="method jdk-11">stripTrailing()</h3>
                 <pre><code data-trim data-noescape>
                 var s = "\t abc \n";
                 s.stripTrailing() ➡️ "\t abc"
                 </code></pre>
             </section>
-            <section>
+            <section id="string-transform">
                 <h3 class="method jdk-12">transform()</h3>
                 <pre><code data-trim data-noescape>
                 "hello".transform(input -> input + " world!")
@@ -105,7 +105,7 @@
                 "hello world!"
                 </code></pre>
             </section>
-            <section>
+            <section id="string-indent">
                 <h3 class="method jdk-12">indent()</h3>
                 <pre><code data-trim data-noescape>
                 var multiline = "This is\na multiline\nstring.";
@@ -115,7 +115,7 @@
                 indented.indent(-999) ➡️ multiline
                 </code></pre>
             </section>
-            <section>
+            <section id="string-text-block-html">
                 <h3 class="method jdk-15">TEXT BLOCK</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 String html = """
@@ -127,7 +127,7 @@
                     """;
                 </script></code></pre>
             </section>
-            <section>
+            <section id="string-text-block-sql">
                 <h3 class="method jdk-15">TEXT BLOCK</h3>
                 <pre><code data-trim data-noescape>
                     String query = """
@@ -137,7 +137,7 @@
                         """;
                 </code></pre>
             </section>
-            <section>
+            <section id="string-text-block-code">
                 <h3 class="method jdk-15">TEXT BLOCK</h3>
                 <pre><code data-trim data-noescape>
                 String code = """
@@ -147,7 +147,7 @@
                     """;
                 </code></pre>
             </section>
-            <section>
+            <section id="string-text-block-oneline">
                 <h3 class="method jdk-15">TEXT BLOCK</h3>
                 <pre><code data-trim data-noescape>
                 String oneLine = """
@@ -157,7 +157,7 @@
                     """;
                 </code></pre>
             </section>
-            <section>
+            <section id="string-formatted">
                 <h3 class="method jdk-15">formatted()</h3>
                 <pre><code data-trim data-noescape>
                 String template = """
@@ -172,7 +172,7 @@
                 String.format(template, "John", "Doe", 21)
                 </code></pre>
             </section>
-            <section>
+            <section id="string-strip-indent">
                 <h3 class="method jdk-15">stripIndent()</h3>
                 <pre><code data-trim data-noescape>
                 String template = """
@@ -190,7 +190,7 @@
                      }""".stripIndent() ➡️ template
                 </code></pre>
             </section>
-            <section>
+            <section id="string-template">
                 <h3 class="method jdk-21">String Templates</h3>
                 <pre><code data-trim data-noescape>
                 String name    = "Joan Smith";
@@ -205,7 +205,7 @@
                     """;
                 </code></pre>
             </section>
-            <section>
+            <section id="string-strip-template2">
                 <h3 class="method jdk-21">String Templates</h3>
                 <pre><code data-trim data-noescape>
                 int x = 10;
@@ -216,7 +216,7 @@
         </section>
         <section id="compact-number-format">
             <h2 class="method jdk-12">CompactNumberFormat</h2>
-            <section>
+            <section id="compact-number-format-en-short">
                 <pre><code data-trim data-noescape>
                 var numberFormat = getCompactNumberInstance(
                         Locale.ENGLISH, Style.SHORT);
@@ -229,7 +229,7 @@
                 1000000 ➡️ "1M"
                 </code></pre>
             </section>
-            <section>
+            <section id="compact-number-format-pl-long">
                 <pre><code data-trim data-noescape>
                 var numberFormat = getCompactNumberInstance(
                         Locale.of("pl", "PL"), Style.LONG);
@@ -245,7 +245,7 @@
         </section>
         <section id="switch-case">
             <h2 class="method jdk-14">switch-case</h2>
-            <section>
+            <section id="switch-case-old">
                 <h3>Old style</h3>
                 <pre><code data-trim data-noescape>
                 int value;
@@ -269,7 +269,7 @@
                         throw new IllegalStateException("What: " + day);
                 </code></pre>
             </section>
-            <section>
+            <section id="switch-case-yield">
                 <h3>yield</h3>
                 <pre><code data-trim data-noescape>
                 int value = switch (day) {
@@ -284,7 +284,7 @@
                 };
                 </code></pre>
             </section>
-            <section>
+            <section id="switch-case-lambda">
                 <h3>lambda</h3>
                 <pre><code data-trim data-noescape>
                 int value = switch (day) {
@@ -298,7 +298,7 @@
         </section>
         <section id="pattern-matching">
             <h2>Pattern Matching</h2>
-            <section>
+            <section id="pattern-matching-if-instanceof-old">
                 <h3>if-instanceof</h3>
                 <h4>old way</h4>
                 <pre><code data-trim data-noescape><script type="text/template">
@@ -313,7 +313,7 @@
                 }
                 </script></code></pre>
             </section>
-            <section>
+            <section id="pattern-matching-if-instanceof">
                 <h3 class="method jdk-16">if-instanceof</h3>
                 <h4>new way</h4>
                 <pre><code data-trim data-noescape><script type="text/template">
@@ -326,7 +326,7 @@
                 }
                 </script></code></pre>
             </section>
-            <section>
+            <section id="pattern-matching-switch">
                 <h3 class="method jdk-17">switch</h3>
                 <pre><code data-trim data-noescape>
                 var msg = switch (shape) {
@@ -337,7 +337,7 @@
                 };
                 </code></pre>
             </section>
-            <section>
+            <section id="pattern-matching-records">
                 <h3 class="method jdk-19">records</h3>
                 <pre><code data-trim data-noescape>
                 if (object instanceof Location(var name, var gpsPoint)) {
@@ -345,7 +345,7 @@
                 }
                 </code></pre>
             </section>
-            <section>
+            <section id="pattern-matching-records-deep">
                 <h3 class="method jdk-19">records (deep)</h3>
                 <pre><code data-trim data-noescape>
                 if (object instanceof Location(var name, GPSPoint(var lat, var lng))) {
@@ -353,7 +353,7 @@
                 }
                 </code></pre>
             </section>
-            <section>
+            <section id="pattern-matching-records-switch">
                 <h3 class="method jdk-19">records in switch</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 val result = switch (object) {
@@ -374,7 +374,7 @@
                 };
                 </script></code></pre>
             </section>
-            <section>
+            <section id="pattern-matching-deconstruction-patterns">
                 <h3 class="method jdk-21">Deconstruction Patterns ❔</h3>
                 <pre><code data-trim data-noescape data-line-numbers="9-12">
                 class Point {
@@ -395,7 +395,7 @@
         </section>
         <section id="records">
             <h2 class="method jdk-16">Records</h2>
-            <section>
+            <section id="records-spec">
                 <h3>Specifications</h3>
                 <ul>
                     <li>final class</li>
@@ -404,14 +404,14 @@
                     <li>automatically has equals(), hashCode() and toString()</li>
                 </ul>
             </section>
-            <section>
+            <section id="records-example">
                 <pre><code data-trim data-noescape><script type="text/template">
                 record GPSPoint(double lat, double lng) {}
                 record Location(String name, GPSPoint gpsPoint) {}
                 record LocationWrapper<T>(T t, String description) {}
                 </script></code></pre>
             </section>
-            <section>
+            <section id="records-validation">
                 <pre><code data-trim data-noescape><script type="text/template">
                 record Range(int lo, int hi) {
 
@@ -436,7 +436,7 @@
         </section>
         <section id="java-doc">
             <h2 class="method jdk-18">JavaDoc</h2>
-            <section>
+            <section id="java-doc-code">
                 <pre><code data-trim data-noescape>
                 /**
                  * How to write a text file with Java 18:
@@ -454,7 +454,7 @@
                 }
                 </code></pre>
             </section>
-            <section>
+            <section id="java-doc-preview">
                 <img src="img/javadoc-snippet.png" class="full-size">
             </section>
         </section>
@@ -471,7 +471,7 @@
         </section>
         <section id="multi-threading">
             <h2>Multi-Threading</h2>
-            <section>
+            <section id="multi-threading-builders">
                 <h3 class="method jdk-19">Thread builders</h3>
                 <pre><code data-trim data-noescape>
                 var virtualThreadFactory = Thread.ofVirtual().factory();
@@ -484,7 +484,7 @@
                 kernelThread.start();
                 </code></pre>
             </section>
-            <section>
+            <section id="multi-threading-executors">
                 <h3 class="method jdk-19">Executors.newVirtualThreadPerTaskExecutor()</h3>
                 <pre><code data-trim data-noescape>
                 try (var executor = newVirtualThreadPerTaskExecutor()) {
@@ -496,7 +496,7 @@
                 }
                 </code></pre>
             </section>
-            <section>
+            <section id="multi-threading-virtual-threads">
                 <h3 class="method jdk-19">VirtualThread</h3>
                 <pre><code data-trim data-noescape>
                 var iterations = 100_000;
@@ -514,7 +514,7 @@
                 // 1 000 000 - 17.2s
                 </code></pre>
             </section>
-            <section>
+            <section id="multi-threading-structured-concurrency">
                 <h3 class="method jdk-19">Structured Concurrency</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
@@ -531,7 +531,7 @@
                 }
                 </script></code></pre>
             </section>
-            <section>
+            <section id="multi-threading-structured-concurrency-error">
                 <h3 class="method jdk-19">Structured Concurrency</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 assertThatThrownBy(() -> {
@@ -549,7 +549,7 @@
                     .hasMessage(ERROR_MESSAGE);
                 </script></code></pre>
             </section>
-            <section>
+            <section id="multi-threading-structured-concurrency-timeout">
                 <h3 class="method jdk-19">Structured Concurrency</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 assertThatThrownBy(() -> {
@@ -572,7 +572,7 @@
         </section>
         <section id="scoped-values">
             <h2 class="method jdk-20">ScopedValue</h2>
-            <section>
+            <section id="scoped-values-spec">
                 <h3>Specifications</h3>
                 <ul>
                     <li>immutable data within and across threads</li>
@@ -580,10 +580,10 @@
                     <li>automatically inherited by all child threads created using the StructuredTaskScope</li>
                 </ul>
             </section>
-            <section>
+            <section id="scoped-values-uml">
                 <img src="img/scoped-value.png" class="full-size">
             </section>
-            <section>
+            <section id="scoped-values-example">
                 <pre><code data-trim data-noescape><script type="text/template">
                 public static final ScopedValue<User> LOGGED_IN_USER =
                         ScopedValue.newInstance();
@@ -598,7 +598,7 @@
         </section>
         <section id="others">
             <h2>Others</h2>
-            <section>
+            <section id="others-sequenced-collections">
                 <h3 class="method jdk-21">Sequenced Collections</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 interface SequencedCollection<E> extends Collection<E> {
@@ -612,7 +612,7 @@
                 }
                 </script></code></pre>
             </section>
-            <section>
+            <section id="others-sequenced-maps">
                 <h3 class="method jdk-21">Sequenced Maps</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 interface SequencedMap<K,V> extends Map<K,V> {
@@ -630,7 +630,7 @@
                 }
                 </script></code></pre>
             </section>
-            <section>
+            <section id="others-sequenced-image">
                 <img src="img/sequenced-diagram.png" class="r-stretch">
             </section>
         </section>
