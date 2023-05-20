@@ -45,621 +45,515 @@
         </section>
         <section id="string">
             <h2>String</h2>
-            <div class="r-stack">
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-11">repeat()</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                        strVar.repeat(2) ➡️ strVar + strVar
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-11">isBlank()</h3>
-                    <pre>
-                    <code data-trim data-noescape data-line-numbers>
-                        ✅ - "".isBlank()
-                        ✅ - " ".isBlank()
-                        ✅ - " \n ".isBlank()
-                        ❌ - "some string".isBlank()
-                    </code>
-                </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-11">lines()</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            "foo\nbar\n\nfoo\nbar".lines() ➡️ Stream.of("foo","bar","","foo","bar")
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-11">strip()</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            var s = "\t abc \n";
-                            s.strip() == s.trim()
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-11">strip()</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            var c = '\u2000';
-                            var s = c + "abc" + c;
-                            s.strip() != s.trim()
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-11">stripLeading()</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            var s = "\t abc \n";
-                            s.stripLeading() ➡️ "abc \n"
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-11">stripTrailing()</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            var s = "\t abc \n";
-                            s.stripTrailing() ➡️ "\t abc"
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-12">transform()</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            "hello".transform(input -> input + " world!") ➡️ "hello world!"
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-12">indent()</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            var multiline = "This is\na multiline\nstring.";
-                            var indented = "  This is\n  a multiline\n  string.";
-                            multiline.indent(2) ➡️ indented
-                            indented.indent(-2) ➡️ multiline
-                            indented.indent(-999) ➡️ multiline
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-15">TEXT BLOCK</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            <script type="text/template">
-                            String html = """
-                            <html>
-                                    <body>
-                                        <p class="greeting">Hello, world</p>
-                                    </body>
-                                </html>
-                            """;
-                            </script>
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-15">TEXT BLOCK</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            String query = """
-                                SELECT "EMP_ID", "LAST_NAME" FROM "EMPLOYEE_TB"
-                                WHERE "CITY" = 'INDIANAPOLIS'
-                                ORDER BY "EMP_ID", "LAST_NAME";
-                                """;
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-15">TEXT BLOCK</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            String code = """
-                                String text = \"""
-                                    A text block inside a text block
-                                \""";
-                                """;
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-15">TEXT BLOCK</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            String oneLine = """
-                                Lorem ipsum dolor sit amet, consectetur adipiscing \
-                                elit, sed do eiusmod tempor incididunt ut labore \
-                                et dolore magna aliqua.\
-                                """;
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-15">formatted()</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            String template = """
-                               {
-                                 "firstName": "%s",
-                                 "lastName": "%s",
-                                 "age": "%d"
-                               }""";
+            <section>
+                <h3 class="method jdk-11">repeat()</h3>
+                <pre><code data-trim data-noescape>
+                strVar.repeat(2) ➡️ strVar + strVar
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-11">isBlank()</h3>
+                <pre><code data-trim data-noescape data-line-numbers>
+                ✅ - "".isBlank()
+                ✅ - " ".isBlank()
+                ✅ - " \n ".isBlank()
+                ❌ - "some string".isBlank()
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-11">lines()</h3>
+                <pre><code data-trim data-noescape>
+                "foo\nbar\n\nfoo\nbar".lines()
+                                ⬇️
+                Stream.of("foo","bar","","foo","bar")
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-11">strip()</h3>
+                <pre><code data-trim data-noescape>
+                var s = "\t abc \n";
+                s.strip() == s.trim()
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-11">strip()</h3>
+                <pre><code data-trim data-noescape>
+                var c = '\u2000';
+                var s = c + "abc" + c;
+                s.strip() != s.trim()
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-11">stripLeading()</h3>
+                <pre><code data-trim data-noescape>
+                var s = "\t abc \n";
+                s.stripLeading() ➡️ "abc \n"
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-11">stripTrailing()</h3>
+                <pre><code data-trim data-noescape>
+                var s = "\t abc \n";
+                s.stripTrailing() ➡️ "\t abc"
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-12">transform()</h3>
+                <pre><code data-trim data-noescape>
+                "hello".transform(input -> input + " world!")
+                     ⬇️
+                "hello world!"
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-12">indent()</h3>
+                <pre><code data-trim data-noescape>
+                var multiline = "This is\na multiline\nstring.";
+                var indented = "  This is\n  a multiline\n  string.";
+                multiline.indent(2) ➡️ indented
+                indented.indent(-2) ➡️ multiline
+                indented.indent(-999) ➡️ multiline
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-15">TEXT BLOCK</h3>
+                <pre><code data-trim data-noescape><script type="text/template">
+                String html = """
+                    <html>
+                        <body>
+                            <p class="greeting">Hello, world</p>
+                        </body>
+                    </html>
+                    """;
+                </script></code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-15">TEXT BLOCK</h3>
+                <pre><code data-trim data-noescape>
+                    String query = """
+                        SELECT "EMP_ID", "LAST_NAME" FROM "EMPLOYEE_TB"
+                        WHERE "CITY" = 'INDIANAPOLIS'
+                        ORDER BY "EMP_ID", "LAST_NAME";
+                        """;
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-15">TEXT BLOCK</h3>
+                <pre><code data-trim data-noescape>
+                String code = """
+                    String text = \"""
+                        A text block inside a text block
+                    \""";
+                    """;
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-15">TEXT BLOCK</h3>
+                <pre><code data-trim data-noescape>
+                String oneLine = """
+                    Lorem ipsum dolor sit amet, consectetur adipiscing \
+                    elit, sed do eiusmod tempor incididunt ut labore \
+                    et dolore magna aliqua.\
+                    """;
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-15">formatted()</h3>
+                <pre><code data-trim data-noescape>
+                String template = """
+                   {
+                     "firstName": "%s",
+                     "lastName": "%s",
+                     "age": "%d"
+                   }""";
 
-                            template.formatted("John", "Doe", 21)
-                                            ⬇️
-                            String.format(template, "John", "Doe", 21)
-                        </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-15">stripIndent()</h3>
-                    <pre>
-                        <code data-trim data-noescape>
-                            String template = """
-                               {
-                                 "firstName": "%s",
-                                 "lastName": "%s",
-                                 "age": "%d"
-                               }""";
+                template.formatted("John", "Doe", 21)
+                                ⬇️
+                String.format(template, "John", "Doe", 21)
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-15">stripIndent()</h3>
+                <pre><code data-trim data-noescape>
+                String template = """
+                   {
+                     "firstName": "%s",
+                     "lastName": "%s",
+                     "age": "%d"
+                   }""";
 
-                            """
-                                 {
-                                   "name": "%s",
-                                   "lastName": "%s",
-                                   "age": "%d"
-                                 }""".stripIndent() ➡️ template
-                        </code>
-                    </pre>
-                </div>
-            </div>
+                """
+                     {
+                       "name": "%s",
+                       "lastName": "%s",
+                       "age": "%d"
+                     }""".stripIndent() ➡️ template
+                </code></pre>
+            </section>
         </section>
         <section id="compact-number-format">
             <h2 class="method jdk-12">CompactNumberFormat</h2>
-            <div class="r-stack">
-                <div class="fragment fade-in-then-out">
-                    <pre>
-                    <code data-trim data-noescape>
-                        var numberFormat = CompactNumberFormat.getCompactNumberInstance(
-                                Locale.ENGLISH, Style.SHORT);
-                        numberFormat.format(x);
+            <section>
+                <pre><code data-trim data-noescape>
+                var numberFormat = getCompactNumberInstance(
+                        Locale.ENGLISH, Style.SHORT);
+                numberFormat.format(x);
 
-                              x ➡️ output
-                            100 ➡️ "100"
-                           1000 ➡️ "1K"
-                         100000 ➡️ "100K"
-                        1000000 ➡️ "1M"
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <pre>
-                    <code data-trim data-noescape>
-                        var numberFormat = CompactNumberFormat.getCompactNumberInstance(
-                                Locale.of("pl", "PL"), Style.LONG);
-                        numberFormat.format(x);
+                      x ➡️ output
+                    100 ➡️ "100"
+                   1000 ➡️ "1K"
+                 100000 ➡️ "100K"
+                1000000 ➡️ "1M"
+                </code></pre>
+            </section>
+            <section>
+                <pre><code data-trim data-noescape>
+                var numberFormat = getCompactNumberInstance(
+                        Locale.of("pl", "PL"), Style.LONG);
+                numberFormat.format(x);
 
-                              x ➡️ output
-                            100 ➡️ "100"
-                           1000 ➡️ "1 tysiąc"
-                         100000 ➡️ "100 tysięcy"
-                        1000000 ➡️ "1 milion"
-                    </code>
-                    </pre>
-                </div>
-            </div>
+                      x ➡️ output
+                    100 ➡️ "100"
+                   1000 ➡️ "1 tysiąc"
+                 100000 ➡️ "100 tysięcy"
+                1000000 ➡️ "1 milion"
+                </code></pre>
+            </section>
         </section>
         <section id="switch-case">
             <h2 class="method jdk-14">switch-case</h2>
-            <div class="r-stack">
-                <div class="fragment fade-in-then-out">
-                    <h3>Old style</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                        int value;
-                        switch (day) {
-                        case MONDAY:
-                        case FRIDAY:
-                        case SUNDAY:
-                            value = 6;
-                            break;
-                        case TUESDAY:
-                            value = 7;
-                            break;
-                        case THURSDAY:
-                        case SATURDAY:
-                            value = 8;
-                            break;
-                        case WEDNESDAY:
-                            value = 9;
-                            break;
-                        default:
-                            throw new IllegalStateException("What: " + day);
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3>yield</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                    int value = switch (day) {
-                        case MONDAY, FRIDAY, SUNDAY:
-                            yield 6;
-                        case TUESDAY:
-                            yield 7;
-                        case THURSDAY, SATURDAY:
-                            yield 8;
-                        case WEDNESDAY:
-                            yield 9;
-                    };
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3>lambda</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                    int value = switch (day) {
-                        case MONDAY, FRIDAY, SUNDAY -> 6;
-                        case TUESDAY -> 7;
-                        case THURSDAY, SATURDAY -> 8;
-                        case WEDNESDAY -> 9;
-                    };
-                    </code>
-                    </pre>
-                </div>
-            </div>
+            <section>
+                <h3>Old style</h3>
+                <pre><code data-trim data-noescape>
+                int value;
+                switch (day) {
+                    case MONDAY:
+                    case FRIDAY:
+                    case SUNDAY:
+                        value = 6;
+                        break;
+                    case TUESDAY:
+                        value = 7;
+                        break;
+                    case THURSDAY:
+                    case SATURDAY:
+                        value = 8;
+                        break;
+                    case WEDNESDAY:
+                        value = 9;
+                        break;
+                    default:
+                        throw new IllegalStateException("What: " + day);
+                </code></pre>
+            </section>
+            <section>
+                <h3>yield</h3>
+                <pre><code data-trim data-noescape>
+                int value = switch (day) {
+                    case MONDAY, FRIDAY, SUNDAY:
+                        yield 6;
+                    case TUESDAY:
+                        yield 7;
+                    case THURSDAY, SATURDAY:
+                        yield 8;
+                    case WEDNESDAY:
+                        yield 9;
+                };
+                </code></pre>
+            </section>
+            <section>
+                <h3>lambda</h3>
+                <pre><code data-trim data-noescape>
+                int value = switch (day) {
+                    case MONDAY, FRIDAY, SUNDAY -> 6;
+                    case TUESDAY -> 7;
+                    case THURSDAY, SATURDAY -> 8;
+                    case WEDNESDAY -> 9;
+                };
+                </code></pre>
+            </section>
         </section>
         <section id="pattern-matching">
             <h2>Pattern Matching</h2>
-            <div class="r-stack">
-                <div class="fragment fade-in-then-out">
-                    <h3>if-instanceof</h3>
-                    <h4>old way</h4>
-                    <pre>
-                    <code data-trim data-noescape>
-                    <script type="text/template">
-                    if (o instanceof Collection) {
-                        Collection<?> c = (Collection<?>) o;
-                        // process collection
-                    } else if (o instanceof Map) {
-                        Map<?, ?> m = (Map<?, ?>) o;
-                        // process map
-                    } else {
-                        // process object
-                    }
-                    </script>
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-16">if-instanceof</h3>
-                    <h4>new way</h4>
-                    <pre>
-                    <code data-trim data-noescape>
-                    <script type="text/template">
-                    if (o instanceof Collection<?> c) {
-                        // process collection
-                    } else if (o instanceof Map<?, ?> m) {
-                        // process map
-                    } else {
-                        // process object
-                    }
-                    </script>
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-17">switch</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                    var msg = switch (shape) {
-                        case Circle c -> "Circle: " + c;
-                        case Rectangle r -> "Rectangle: " + r;
-                        case Square s -> "Square: " + s;
-                        default -> "Something else";
-                    };
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-19">records</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                    if (object instanceof Location(var name, var gpsPoint)) {
-                        // name and gpsPoint processable from here
-                    }
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-19">records (deep)</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                    if (object instanceof Location(var name, GPSPoint(var lat, var lng))) {
-                        // name, lat and lng processable from here
-                    }
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-19">records in switch</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                    <script type="text/template">
-                    val result = switch (object) {
-                        case Location(var name, var ignored)
-                            when name.equals("Home") -> "Test";
-                        case Location(var name, var ignored) -> name;
-                        case LocationWrapper<?>(Location(var name,
-                                                         GPSPoint(var lat,
-                                                                  var lng)),
-                                                var description)
-                            when description.equals("Description") -> name;
-                        case LocationWrapper<?>(Location(var name,
-                                                         GPSPoint(var lat,
-                                                                  var lng)),
-                                             var description) -> description;
-                        case GPSPoint(var lat, var lon) -> String.valueOf(lat);
-                        default -> "default";
-                    };
-                    </script>
-                    </code>
-                    </pre>
-                </div>
-            </div>
+            <section>
+                <h3>if-instanceof</h3>
+                <h4>old way</h4>
+                <pre><code data-trim data-noescape><script type="text/template">
+                if (o instanceof Collection) {
+                    Collection<?> c = (Collection<?>) o;
+                    // process collection
+                } else if (o instanceof Map) {
+                    Map<?, ?> m = (Map<?, ?>) o;
+                    // process map
+                } else {
+                    // process object
+                }
+                </script></code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-16">if-instanceof</h3>
+                <h4>new way</h4>
+                <pre><code data-trim data-noescape><script type="text/template">
+                if (o instanceof Collection<?> c) {
+                    // process collection
+                } else if (o instanceof Map<?, ?> m) {
+                    // process map
+                } else {
+                    // process object
+                }
+                </script></code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-17">switch</h3>
+                <pre><code data-trim data-noescape>
+                var msg = switch (shape) {
+                    case Circle c -> "Circle: " + c;
+                    case Rectangle r -> "Rectangle: " + r;
+                    case Square s -> "Square: " + s;
+                    default -> "Something else";
+                };
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-19">records</h3>
+                <pre><code data-trim data-noescape>
+                if (object instanceof Location(var name, var gpsPoint)) {
+                    // name and gpsPoint processable from here
+                }
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-19">records (deep)</h3>
+                <pre><code data-trim data-noescape>
+                if (object instanceof Location(var name, GPSPoint(var lat, var lng))) {
+                    // name, lat and lng processable from here
+                }
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-19">records in switch</h3>
+                <pre><code data-trim data-noescape><script type="text/template">
+                val result = switch (object) {
+                    case Location(var name, var ignored)
+                        when name.equals("Home") -> "Test";
+                    case Location(var name, var ignored) -> name;
+                    case LocationWrapper<?>(Location(var name,
+                                            GPSPoint(var lat,
+                                                     var lng)),
+                                            var description)
+                        when description.equals("Description") -> name;
+                    case LocationWrapper<?>(Location(var name,
+                                                     GPSPoint(var lat,
+                                                              var lng)),
+                                                     var description) -> description;
+                    case GPSPoint(var lat, var lon) -> String.valueOf(lat);
+                    default -> "default";
+                };
+                </script></code></pre>
+            </section>
         </section>
         <section id="records">
             <h2 class="method jdk-16">Records</h2>
-            <div class="r-stack">
-                <div class="fragment fade-in-then-out">
-                    <h3>Specifications</h3>
-                    <ul>
-                        <li>final class</li>
-                        <li>all fields are private final</li>
-                        <li>automatically has "getters" for all the fields</li>
-                        <li>automatically has equals(), hashCode() and toString()</li>
-                    </ul>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <pre>
-                    <code data-trim data-noescape>
-                    <script type="text/template">
-                    record GPSPoint(double lat, double lng) {}
-                    record Location(String name, GPSPoint gpsPoint) {}
-                    record LocationWrapper<T>(T t, String description) {}
-                    </script>
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <pre>
-                    <code data-trim data-noescape>
-                    <script type="text/template">
-                    record Range(int lo, int hi) {
+            <section>
+                <h3>Specifications</h3>
+                <ul>
+                    <li>final class</li>
+                    <li>all fields are private final</li>
+                    <li>automatically has "getters" for all the fields</li>
+                    <li>automatically has equals(), hashCode() and toString()</li>
+                </ul>
+            </section>
+            <section>
+                <pre><code data-trim data-noescape><script type="text/template">
+                record GPSPoint(double lat, double lng) {}
+                record Location(String name, GPSPoint gpsPoint) {}
+                record LocationWrapper<T>(T t, String description) {}
+                </script></code></pre>
+            </section>
+            <section>
+                <pre><code data-trim data-noescape><script type="text/template">
+                record Range(int lo, int hi) {
 
-                        public Range {
-                            if (lo > hi) {
-                                throw new IllegalArgumentException(
-                                        "(%d,%d)".formatted(lo, hi));
-                            }
+                    public Range {
+                        if (lo > hi) {
+                            throw new IllegalArgumentException(
+                                    "(%d,%d)".formatted(lo, hi));
                         }
                     }
-                    </script>
-                    </code>
-                    </pre>
-                </div>
-            </div>
+                }
+                </script></code></pre>
+            </section>
         </section>
         <section id="sealed-types">
             <h2 class="method jdk-17">Sealed types</h2>
-            <div class="r-stack">
-                <div class="fragment fade-in-then-out">
-                    <pre>
-                    <code data-trim data-noescape>
-                    abstract sealed class Shape permits Circle, Rectangle, Square {}
-                    final class Circle extends Shape {}
-                    final class Rectangle extends Shape {}
-                    final class Square extends Shape {}
-                    </code>
-                    </pre>
-                </div>
-            </div>
+            <pre><code data-trim data-noescape>
+            abstract sealed class Shape permits Circle, Rectangle, Square {}
+            final class Circle extends Shape {}
+            final class Rectangle extends Shape {}
+            final class Square extends Shape {}
+            </code></pre>
         </section>
         <section id="java-doc">
             <h2 class="method jdk-18">JavaDoc</h2>
-            <div class="r-stack">
-                <div class="fragment fade-in-then-out">
-                    <pre>
-                    <code data-trim data-noescape>
-                        /**
-                         * How to write a text file with Java 18:
-                         * {@snippet :
-                         * try (var writer = Files.newBufferedWriter(path)) {
-                         *   writer.write(text);
-                         * }
-                         *}
-                         *
-                         * @param path destination
-                         * @param text to be written
-                         */
-                        private void method(Path path, String text) throws IOException {
-                            // ...
-                        }
-                    </code>
-                    </pre>
-                </div>
-                <img src="img/javadoc-snippet.png" class="fragment fade-in-then-out r-stretch">
-            </div>
+            <section>
+                <pre><code data-trim data-noescape>
+                /**
+                 * How to write a text file with Java 18:
+                 * {@snippet :
+                 * try (var writer = Files.newBufferedWriter(path)) {
+                 *   writer.write(text);
+                 * }
+                 *}
+                 *
+                 * @param path destination
+                 * @param text to be written
+                 */
+                private void method(Path path, String text) throws IOException {
+                    // ...
+                }
+                </code></pre>
+            </section>
+            <section>
+                <img src="img/javadoc-snippet.png" class="full-size">
+            </section>
         </section>
         <section id="network">
             <h2 class="method jdk-18">Internet Address Resolution</h2>
             <div>
-                <pre>
-                <code data-trim data-noescape>
-                    String ADDRESS = "www.google.com";
-                    for (var address : InetAddress.getAllByName(ADDRESS)) {
-                        address.getHostName() ➡️ ADDRESS;
-                    }
-                </code>
-                </pre>
+                <pre><code data-trim data-noescape>
+                String ADDRESS = "www.google.com";
+                for (var address : InetAddress.getAllByName(ADDRESS)) {
+                    address.getHostName() ➡️ ADDRESS;
+                }
+                </code></pre>
             </div>
         </section>
         <section id="multi-threading">
             <h2>Multi-Threading</h2>
-            <div class="r-stack">
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-19">Thread builders</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                    var virtualThreadFactory = Thread.ofVirtual().factory();
-                    var kernelThreadFactory = Thread.ofPlatform().factory();
+            <section>
+                <h3 class="method jdk-19">Thread builders</h3>
+                <pre><code data-trim data-noescape>
+                var virtualThreadFactory = Thread.ofVirtual().factory();
+                var kernelThreadFactory = Thread.ofPlatform().factory();
 
-                    var virtualThread = virtualThreadFactory.newThread(printThread);
-                    var kernelThread = kernelThreadFactory.newThread(printThread);
+                var virtualThread = virtualThreadFactory.newThread(printThread);
+                var kernelThread = kernelThreadFactory.newThread(printThread);
 
-                    virtualThread.start();
-                    kernelThread.start();
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-19">Executors.newVirtualThreadPerTaskExecutor()</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                    try (var executor = newVirtualThreadPerTaskExecutor()) {
-                        var bathTime = executor.submit(this::takeABath);
-                        var boilingWater = executor.submit(this::boilWater);
+                virtualThread.start();
+                kernelThread.start();
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-19">Executors.newVirtualThreadPerTaskExecutor()</h3>
+                <pre><code data-trim data-noescape>
+                try (var executor = newVirtualThreadPerTaskExecutor()) {
+                    var bathTime = executor.submit(this::takeABath);
+                    var boilingWater = executor.submit(this::boilWater);
 
-                        boilingWater.get();
-                        bathTime.get();
+                    boilingWater.get();
+                    bathTime.get();
+                }
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-19">VirtualThread</h3>
+                <pre><code data-trim data-noescape>
+                var iterations = 100_000;
+                var idleService = spy(new IdleService());
+                try (var executor = newVirtualThreadPerTaskExecutor()) {
+                    IntStream.range(0, iterations).forEach(i ->
+                            executor.submit(idleService::doStuff));
+                }
+                verify(idleService, times(iterations)).doStuff();
+
+                // M1 Pro 8 core / 16GB RAM
+                //     1 000 - 1.5s
+                //    10 000 - 1.8s
+                //   100 000 - 4.2s
+                // 1 000 000 - 17.2s
+                </code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-19">Structured Concurrency</h3>
+                <pre><code data-trim data-noescape><script type="text/template">
+                try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+                    Future<Shelter> shelter = scope.fork(this::getShelter);
+                    Future<List<Dog>> dogs = scope.fork(this::getDogs);
+                    scope.join();
+
+                    var response = new Response(shelter.resultNow(),
+                                                dogs.resultNow());
+
+                    assertResponseCorrect(response);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                </script></code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-19">Structured Concurrency</h3>
+                <pre><code data-trim data-noescape><script type="text/template">
+                assertThatThrownBy(() -> {
+                try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+                    Future<Shelter> shelter = scope.fork(this::getShelter);
+                    Future<List<Dog>> dogs = scope.fork(this::getDogsWithException);
+                    scope.throwIfFailed(e -> new RuntimeException(ERROR_MESSAGE));
+                    scope.join();
+                    var response = new Response(shelter.resultNow(),
+                                                dogs.resultNow());
+
+                        assertResponseCorrect(response);
                     }
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-19">VirtualThread</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                    var iterations = 100_000;
-                    var idleService = spy(new IdleService());
-                    try (var executor = newVirtualThreadPerTaskExecutor()) {
-                        IntStream.range(0, iterations).forEach(i ->
-                                executor.submit(idleService::doStuff));
+                }).isInstanceOf(RuntimeException.class)
+                    .hasMessage(ERROR_MESSAGE);
+                </script></code></pre>
+            </section>
+            <section>
+                <h3 class="method jdk-19">Structured Concurrency</h3>
+                <pre><code data-trim data-noescape><script type="text/template">
+                assertThatThrownBy(() -> {
+                try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+                    Future<Shelter> shelter = scope.fork(this::getShelter);
+                    Future<List<Dog>> dogs = scope.fork(this::getDogsSlowly);
+                    scope.throwIfFailed(e -> new RuntimeException(ERROR_MESSAGE));
+                    scope.join();
+                    scope.joinUntil(Instant.now().plusMillis(50));
+                    var response = new Response(shelter.resultNow(),
+                                                dogs.resultNow());
+
+                        assertResponseCorrect(response);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
                     }
-                    verify(idleService, times(iterations)).doStuff();
-
-                    // M1 Pro 8 core / 16GB RAM
-                    //     1 000 - 1.5s
-                    //    10 000 - 1.8s
-                    //   100 000 - 4.2s
-                    // 1 000 000 - 17.2s
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-19">Structured Concurrency</h3>
-                    <pre>
-                    <code data-trim data-noescape><script type="text/template">
-                            try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-                                Future<Shelter> shelter = scope.fork(this::getShelter);
-                                Future<List<Dog>> dogs = scope.fork(this::getDogs);
-                                scope.join();
-
-                                var response = new Response(shelter.resultNow(),
-                                                            dogs.resultNow());
-
-                                assertResponseCorrect(response);
-                            } catch (InterruptedException e) {
-                                throw new RuntimeException(e);
-                            }
-                    </script></code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-19">Structured Concurrency</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                        <script type="text/template">
-                            assertThatThrownBy(() -> {
-                                try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-                                    Future<Shelter> shelter = scope.fork(this::getShelter);
-                                    Future<List<Dog>> dogs = scope.fork(this::getDogsWithException);
-                                    scope.throwIfFailed(e -> new RuntimeException(ERROR_MESSAGE));
-                                    scope.join();
-                                    var response = new Response(shelter.resultNow(),
-                                                                dogs.resultNow());
-
-                                    assertResponseCorrect(response);
-                                }
-                            }).isInstanceOf(RuntimeException.class)
-                                .hasMessage(ERROR_MESSAGE);
-                        </script>
-                    </code>
-                    </pre>
-                </div>
-                <div class="fragment fade-in-then-out">
-                    <h3 class="method jdk-19">Structured Concurrency</h3>
-                    <pre>
-                    <code data-trim data-noescape>
-                        <script type="text/template">
-                            assertThatThrownBy(() -> {
-                                try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-                                    Future<Shelter> shelter = scope.fork(this::getShelter);
-                                    Future<List<Dog>> dogs = scope.fork(this::getDogsSlowly);
-                                    scope.throwIfFailed(e -> new RuntimeException(ERROR_MESSAGE));
-                                    scope.join();
-                                    scope.joinUntil(Instant.now().plusMillis(50));
-                                    var response = new Response(shelter.resultNow(),
-                                                                dogs.resultNow());
-
-                                    assertResponseCorrect(response);
-                                } catch (InterruptedException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            }).isInstanceOf(IllegalStateException.class);
-                        </script>
-                    </code>
-                    </pre>
-                </div>
-            </div>
+                }).isInstanceOf(IllegalStateException.class);
+                </script></code></pre>
+            </section>
         </section>
         <section id="scoped-values">
             <h2 class="method jdk-20">ScopedValue</h2>
-            <div class="r-stack">
-                <div class="fragment fade-in-then-out">
-                    <h3>Specifications</h3>
-                    <ul>
-                        <li>immutable data within and across threads</li>
-                        <li>not accessible from outside the scope</li>
-                        <li>automatically inherited by all child threads created using the StructuredTaskScope</li>
-                    </ul>
-                </div>
-                <img src="img/scoped-value.png" class="fragment fade-in-then-out full-size">
-                <div class="fragment fade-in-then-out">
-                    <pre>
-                    <code data-trim data-noescape>
-                    <script type="text/template">
-                    public static final ScopedValue<User> LOGGED_IN_USER =
-                            ScopedValue.newInstance();
+            <section>
+                <h3>Specifications</h3>
+                <ul>
+                    <li>immutable data within and across threads</li>
+                    <li>not accessible from outside the scope</li>
+                    <li>automatically inherited by all child threads created using the StructuredTaskScope</li>
+                </ul>
+            </section>
+            <section>
+                <img src="img/scoped-value.png" class="full-size">
+            </section>
+            <section>
+                <pre><code data-trim data-noescape><script type="text/template">
+                public static final ScopedValue<User> LOGGED_IN_USER =
+                        ScopedValue.newInstance();
 
-                    public void serve(Request request) {
-                        User loggedInUser = authenticateUser(request);
-                        ScopedValue.where(LOGGED_IN_USER, loggedInUser)
-                            .run(() -> restAdapter.processRequest(request));
-                    }
-                    </script>
-                    </code>
-                    </pre>
-                </div>
-            </div>
+                public void serve(Request request) {
+                    User loggedInUser = authenticateUser(request);
+                    ScopedValue.where(LOGGED_IN_USER, loggedInUser)
+                        .run(() -> restAdapter.processRequest(request));
+                }
+                </script></code></pre>
+            </section>
         </section>
         <section id="others"></section>
     </div>
@@ -670,6 +564,7 @@
 <script src="plugin/markdown/markdown.js"></script>
 <script src="plugin/highlight/highlight.js"></script>
 <script>
+    $('code').addClass('language-java')
     // More info about initialization & config:
     // - https://revealjs.com/initialization/
     // - https://revealjs.com/config/

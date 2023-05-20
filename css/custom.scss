@@ -79,8 +79,6 @@ $font_code: 'Fira Code VF', monospace;
   code {
     font-family: $font_monospaced !important;
     text-transform: none;
-    width: 110%;
-    height: 100%;
   }
 
   @supports (font-variation-settings: normal) {
