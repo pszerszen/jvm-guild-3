@@ -374,6 +374,24 @@
                 };
                 </script></code></pre>
             </section>
+            <section>
+                <h3 class="method jdk-21">Deconstruction Patterns ❔</h3>
+                <pre><code data-trim data-noescape data-line-numbers="9-12">
+                class Point {
+                    final double x, y;
+
+                    public Point(double x, double y) {
+                        this.x = x;
+                        this.y = y;
+                    }
+
+                    public matcher Point(double x, double y) {
+                        x = this.x;
+                        y = this.y;
+                    }
+                }
+                </code></pre>
+            </section>
         </section>
         <section id="records">
             <h2 class="method jdk-16">Records</h2>
