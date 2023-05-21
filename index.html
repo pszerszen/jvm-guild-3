@@ -191,7 +191,7 @@
                 </code></pre>
             </section>
             <section id="string-template">
-                <h3 class="method jdk-21">String Templates</h3>
+                <h3 class="method jdk-21 prev">String Templates</h3>
                 <pre><code data-trim data-noescape>
                 String name    = "Joan Smith";
                 String phone   = "555-123-4567";
@@ -206,7 +206,7 @@
                 </code></pre>
             </section>
             <section id="string-strip-template2">
-                <h3 class="method jdk-21">String Templates</h3>
+                <h3 class="method jdk-21 prev">String Templates</h3>
                 <pre><code data-trim data-noescape>
                 int x = 10;
                 int y = 20;
@@ -327,7 +327,7 @@
                 </script></code></pre>
             </section>
             <section id="pattern-matching-switch">
-                <h3 class="method jdk-17">switch</h3>
+                <h3 class="method jdk-17 prev">switch</h3>
                 <pre><code data-trim data-noescape>
                 var msg = switch (shape) {
                     case Circle c -> "Circle: " + c;
@@ -338,7 +338,7 @@
                 </code></pre>
             </section>
             <section id="pattern-matching-records">
-                <h3 class="method jdk-19">records</h3>
+                <h3 class="method jdk-19 prev">records</h3>
                 <pre><code data-trim data-noescape>
                 if (object instanceof Location(var name, var gpsPoint)) {
                     // name and gpsPoint processable from here
@@ -346,7 +346,7 @@
                 </code></pre>
             </section>
             <section id="pattern-matching-records-deep">
-                <h3 class="method jdk-19">records (deep)</h3>
+                <h3 class="method jdk-19 prev">records (deep)</h3>
                 <pre><code data-trim data-noescape>
                 if (object instanceof Location(var name, GPSPoint(var lat, var lng))) {
                     // name, lat and lng processable from here
@@ -354,7 +354,7 @@
                 </code></pre>
             </section>
             <section id="pattern-matching-records-switch">
-                <h3 class="method jdk-19">records in switch</h3>
+                <h3 class="method jdk-19 prev">records in switch</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 val result = switch (object) {
                     case Location(var name, var ignored)
@@ -375,7 +375,7 @@
                 </script></code></pre>
             </section>
             <section id="pattern-matching-deconstruction-patterns">
-                <h3 class="method jdk-21">Deconstruction Patterns ❔</h3>
+                <h3 class="method jdk-21 prev">Deconstruction Patterns ❔</h3>
                 <pre><code data-trim data-noescape data-line-numbers="9-12">
                 class Point {
                     final double x, y;
@@ -472,7 +472,7 @@
         <section id="multi-threading">
             <h2>Multi-Threading</h2>
             <section id="multi-threading-builders">
-                <h3 class="method jdk-19">Thread builders</h3>
+                <h3 class="method jdk-19 prev">Thread builders</h3>
                 <pre><code data-trim data-noescape>
                 var virtualThreadFactory = Thread.ofVirtual().factory();
                 var kernelThreadFactory = Thread.ofPlatform().factory();
@@ -485,7 +485,7 @@
                 </code></pre>
             </section>
             <section id="multi-threading-executors">
-                <h3 class="method jdk-19">Executors.newVirtualThreadPerTaskExecutor()</h3>
+                <h3 class="method jdk-19 prev">Executors.newVirtualThreadPerTaskExecutor()</h3>
                 <pre><code data-trim data-noescape>
                 try (var executor = newVirtualThreadPerTaskExecutor()) {
                     var bathTime = executor.submit(this::takeABath);
@@ -497,7 +497,7 @@
                 </code></pre>
             </section>
             <section id="multi-threading-virtual-threads">
-                <h3 class="method jdk-19">VirtualThread</h3>
+                <h3 class="method jdk-19 prev">VirtualThread</h3>
                 <pre><code data-trim data-noescape>
                 var iterations = 100_000;
                 var idleService = spy(new IdleService());
@@ -515,7 +515,7 @@
                 </code></pre>
             </section>
             <section id="multi-threading-structured-concurrency">
-                <h3 class="method jdk-19">Structured Concurrency</h3>
+                <h3 class="method jdk-19 prev">Structured Concurrency</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
                     Future<Shelter> shelter = scope.fork(this::getShelter);
@@ -532,7 +532,7 @@
                 </script></code></pre>
             </section>
             <section id="multi-threading-structured-concurrency-error">
-                <h3 class="method jdk-19">Structured Concurrency</h3>
+                <h3 class="method jdk-19 prev">Structured Concurrency (error)</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 assertThatThrownBy(() -> {
                 try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
@@ -550,7 +550,7 @@
                 </script></code></pre>
             </section>
             <section id="multi-threading-structured-concurrency-timeout">
-                <h3 class="method jdk-19">Structured Concurrency</h3>
+                <h3 class="method jdk-19 prev">Structured Concurrency (timeout)</h3>
                 <pre><code data-trim data-noescape><script type="text/template">
                 assertThatThrownBy(() -> {
                 try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
@@ -570,7 +570,7 @@
                 </script></code></pre>
             </section>
         </section>
-        <section id="scoped-values">
+        <section id="scoped-values prev">
             <h2 class="method jdk-20">ScopedValue</h2>
             <section id="scoped-values-spec">
                 <h3>Specifications</h3>

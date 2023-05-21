@@ -101,6 +101,11 @@ $font_code: 'Fira Code VF', monospace;
       margin-right: 10px;
     }
   }
+  .prev {
+    &::before {
+      color: gold;
+    }
+  }
 
   .jdk-11 {
     &::before {
