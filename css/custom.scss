@@ -179,8 +179,9 @@ $font_code: 'Fira Code VF', monospace;
     -moz-columns: 2;
   }
 
-  img.full-size {
-    max-height: 55vh;
+  .invisible {
+    color: transparent;
   }
+
 }
 
