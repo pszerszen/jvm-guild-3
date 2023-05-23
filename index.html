@@ -442,7 +442,7 @@
             <pre><code data-trim data-noescape>
             abstract sealed class Shape permits Circle, Trapeze {}
             final class Circle extends Shape {}
-            sealed class Trapeze extends Shape permits Rectangle {}
+            sealed class Trapeze extends Shape permits Parallelogram {}
             sealed class Parallelogram extends Trapeze permits Diamond,
                                                                Rectangle {}
             final class Diamond extends Parallelogram {}
@@ -600,7 +600,8 @@
                 <img src="img/scoped-value.png" class="full-size">
             </section>
             <section id="scoped-values-example">
-                <pre><code data-trim data-noescape><script type="text/template">
+                <pre><code data-trim data-noescape data-line-numbers="2-3|7-8|13"><script type="text/template">
+                // Server
                 public static final ScopedValue<User> LOGGED_IN_USER =
                         ScopedValue.newInstance();
 
@@ -608,6 +609,15 @@
                     User loggedInUser = authenticateUser(request);
                     ScopedValue.where(LOGGED_IN_USER, loggedInUser)
                         .run(() -> restAdapter.processRequest(request));
+                }
+                // Repository
+                public Data getData(UUID id) {
+                    Data data = findById(id);
+                    User loggedInUser = Server.LOGGED_IN_USER.get();
+                    if (loggedInUser.isAdmin()) {
+                        enrichDataWithAdminInfos(data);
+                    }
+                    return data;
                 }
                 </script></code></pre>
             </section>
