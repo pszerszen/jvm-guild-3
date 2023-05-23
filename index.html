@@ -339,8 +339,12 @@
                 <pre><code data-trim data-noescape>
                 var msg = switch (shape) {
                     case Circle c -> "Circle: " + c;
-                    case Rectangle r -> "Rectangle: " + r;
                     case Square s -> "Square: " + s;
+                    case Diamond d -> "Diamond: " + d;
+                    case Rectangle r -> "Rectangle: " + r;
+                    case Parallelogram p -> "Parallelogram: " + p;
+                    case Trapeze t -> "Trapeze: " + t;
+                    // not needed if Shape is sealed-type
                     default -> "Something else";
                 };
                 </code></pre>
@@ -436,10 +440,14 @@
         <section id="sealed-types">
             <h2 class="method jdk-17">Sealed types</h2>
             <pre><code data-trim data-noescape>
-            abstract sealed class Shape permits Circle, Rectangle, Square {}
+            abstract sealed class Shape permits Circle, Trapeze {}
             final class Circle extends Shape {}
-            final class Rectangle extends Shape {}
-            final class Square extends Shape {}
+            sealed class Trapeze extends Shape permits Rectangle {}
+            sealed class Parallelogram extends Trapeze permits Diamond,
+                                                               Rectangle {}
+            final class Diamond extends Parallelogram {}
+            non-sealed class Rectangle extends Parallelogram {}
+            final class Square extends Rectangle {}
             </code></pre>
         </section>
         <section id="java-doc">
